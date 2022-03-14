@@ -10,6 +10,7 @@
                 <!-- Add your fields here -->
                 
                 <field name="name"/>
+                <field name="tanggal_pesan"/>
                 <field name="order_detail_ids"/>
                 <field name="total"/>
                 
@@ -27,6 +28,7 @@
                     <group>
                         <!-- Add your fields here -->
                         <field name="name"/>
+                        <field name="tanggal_pesan"/>
                         <field name="total"/>
                         <notebook colspan='4'>
                             <page name="Panggung" string="Panggung">

@@ -1,4 +1,6 @@
 from ast import Store
+from dataclasses import field
+from email.policy import default
 from odoo import api, fields, models
 
 
@@ -11,6 +13,7 @@ class Order(models.Model):
         inverse_name='order_id', 
         string='Order Detail')
     name = fields.Char(string='Kode Order', required=True)
+    tanggal_pesan = fields.Date('Tanggal Pemesanan', default=fields.Datetime.now())
     total = fields.Integer(compute='_compute_total', string='Total', Store=True)
 
     @api.depends('order_detail_ids')
@@ -45,5 +48,16 @@ class OrderDetail(models.Model):
     def _compute_harga(self):
         for record in self:
             record.harga = record.harga_satuan * record.qty
+    
+
+    @api.model
+    def create(self, vals):
+        record = super(OrderDetail,self).create(vals)
+        if record.qty:
+            self.env['wedding.panggung'].search([('id', '=', record.panggung_id.id)]).write({'stok':record.panggung_id.stok-record.qty})
+            return record
+    
+        
+    
     
 
