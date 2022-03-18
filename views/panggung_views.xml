@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- wedding.panggung tree view -->
     <record id="wedding_panggung_view_tree" model="ir.ui.view">
@@ -14,7 +14,6 @@
                 <field name="accesories"/>
                 <field name="harga"/>
                 <field name="stok"/>
-                <field name="orderdetail_ids"/>
             </tree>
         </field>
     </record>
@@ -29,14 +28,15 @@
                         <!-- Add your fields here -->
                         <field name="name"/>
                         <field name="pelaminan_id"/>
-                        <field name="kursipengantin_id"/> 
+                        <field name="kursipengantin_id"/>                        
                     </group>
+               
                     <group>
-                        <!-- Add your fields here -->
                         <field name="bunga"/>
                         <field name="accesories"/>
                         <field name="stok"/>
                     </group>
+               
                     <group>
                         <field name="harga"/>
                     </group>
@@ -47,26 +47,21 @@
                         <page string="DESKRIPSI KURSI PENGANTIN">
                             <field name="des_kursipengantin"/>
                         </page>
-                        <page string="ORDER DETAIL">
-                            <field name="orderdetail_ids">
-                                <tree>
-                                    <field name="name"/>
-                                    <field name="qty"/> 
-                                </tree>
-                            </field>
-                        </page>
+                        
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
-    <!-- wedding_panggung action window -->
+
+    <!-- wedding.panggung action window -->
     <record id="wedding_panggung_action" model="ir.actions.act_window">
         <field name="name">Daftar Jenis Panggung</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">wedding.panggung</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form</field>        
     </record>
+
     <!-- This Menu Item must have a parent and an action -->
     <menuitem 
         id="wedding_akomodasi_panggung_menu_act" 
@@ -74,4 +69,5 @@
         parent="wedding_akomodasi_menu_categ" 
         action="wedding_panggung_action" 
         sequence="10"/>
+
 </odoo>
