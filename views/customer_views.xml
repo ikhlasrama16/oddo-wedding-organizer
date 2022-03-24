@@ -31,13 +31,13 @@
     </record>
     
     <!-- res.partner action window -->
-    <record id="res_partner_pegawai_action" model="ir.actions.act_window">
-        <field name="name">Pegawai</field>
+    <record id="res_partner_customer_action" model="ir.actions.act_window">
+        <field name="name">Customer</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="context">{
-            'search_default_pegawainya':1,
-            'default_is_pegawainya':True,
+            'search_default_customernya':1,
+            'default_is_customernya':True,
         }
         </field>
         <field name="view_mode">tree,form</field>
@@ -45,9 +45,9 @@
 
     <!-- This Menu Item must have a parent and an action -->
     <menuitem 
-        id="wedding_partner_pegawai_menu_act" 
-        name="Pegawai" 
+        id="wedding_partner_customer_menu_act" 
+        name="Customer" 
         parent="wedding_partner_menu_categ" 
-        action="res_partner_pegawai_action" 
-        sequence="10"/>
+        action="res_partner_customer_action" 
+        sequence="20"/>
 </odoo>
