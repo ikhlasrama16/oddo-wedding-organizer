@@ -13,7 +13,7 @@ class Pengembalian(models.Model):
     @api.depends('order_id')
     def _compute_nama_penyewa(self):
         for record in self:
-            record.nama_penyewa = self.env['wedding.order'].search([('id', '=', record.order_id.id)]).mapped('pemesan')
+            record.nama_penyewa = self.env['wedding.order'].search([('id', '=', record.order_id.id)]).mapped('pemesan').name
 
     tgl_pengembalian = fields.Date(string='', default=fields.Date.today())
 
